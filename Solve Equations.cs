@@ -42,7 +42,7 @@ namespace fushu
                 Console.WriteLine("x2={0}", x2);
 
             }
-            Console.ReadKey();
+            Console.ReadKey(
         }
     }
 }
