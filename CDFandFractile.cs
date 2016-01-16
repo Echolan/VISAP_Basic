@@ -151,7 +151,12 @@ namespace CDFandFractile
             }
             return ua;
         }
-        static double FdistUa(double af,int m,int n)        {            double ua,tbp,bf;             bf=1-af;            tbp=BetaUa(af,m/2.0,n/2.0);            ua=n*tbp/(m*(1.0-tbp));
+        static double FdistUa(double af,int m,int n)
+        {
+            double ua,tbp,bf; 
+            bf=1-af;
+            tbp=BetaUa(af,m/2.0,n/2.0);
+            ua=n*tbp/(m*(1.0-tbp));
             return ua;
         }
         static double chi21(double x, int Freedom)
@@ -220,8 +225,10 @@ namespace CDFandFractile
         } 
         static double PossionCDF(double x,double p)
         {
-            double prob = 0.0;            prob=1.0-chi21(2*p,2*((int)x)+1);
-            return prob;        }
+            double prob = 0.0;
+            prob=1.0-chi21(2*p,2*((int)x)+1);
+            return prob;
+        }
         static double chi2Ua0(double af, int Freedom)
         {
             double ua, p, temp;
@@ -400,10 +407,12 @@ namespace CDFandFractile
             int m = 6, n = 7;
             double x3 = 0.4;
             Console.WriteLine("FCDF(x = {0},m = {1}, n = {2}) = {3}", x3, m, n, FCDF(x3, m, n));
-            Console.WriteLine("BinomialCDF = {0}",BinomialCDF(3,0.6,5));            Console.WriteLine("Kai^2={0}",chi2(0.7,2));
-            Console.WriteLine("PossionCDF = {0}",PossionCDF(0.3,0.7));
+            Console.WriteLine("BinomialCDF = {0}",BinomialCDF(3,0.6,5));
+            Console.WriteLine("Kai^2={0}",chi2(0.7,2));
+            Console.WriteLine("PossionCDF = {0}",PossionCDF(0.3,0.7));//泊松算出来不准的
             Console.WriteLine("FdistUa={0}",FdistUa(0.3,5,5));
-            Console.WriteLine("TINV={0}",TINV(0.4,3));            Console.WriteLine("chi^2Ua = {0}",chi2Ua(0.7,10));
+            Console.WriteLine("TINV={0}",TINV(0.4,3));
+            Console.WriteLine("chi^2Ua = {0}",chi2Ua(0.7,10));//在0.9以上的p值都不可以算出来，出现非数值
             Console.ReadKey();
         }
     }
